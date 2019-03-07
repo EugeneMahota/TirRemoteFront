@@ -1,0 +1,132 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-4 align-self-center">
+        <h4 class="mt-1 mb-1">Камеры</h4>
+      </div>
+      <div class="col-md-8 align-self-center">
+        <form [formGroup]="addCameraForm">
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <small class="input-group-text input-group-text-blue">
+                    Название:
+                  </small>
+                </div>
+                <input formControlName="name" type="text" class="form-control form-control-blue form-control-sm" id="name" name="name">
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <small class="input-group-text input-group-text-blue">
+                    IP адрес:
+                  </small>
+                </div>
+                <input formControlName="address" type="text" class="form-control form-control-blue form-control-sm" id="address" name="address">
+              </div>
+            </div>
+            <div class="col-lg-2 text-right">
+                <button class="btn btn-header btn-sm" type="submit" [disabled]="addCameraForm.invalid" (click)="addCamera(addCameraForm.value)">ДОБАВИТЬ</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive" *ngIf="listCamera.length > 0">
+    <table class="table mb-0">
+      <thead>
+      <tr>
+        <th scope="col" class="text-center border-0">#</th>
+        <th scope="col" class="text-center border-0 w-50">Название</th>
+        <th scope="col" class="text-center border-0 w-50">IP адрес</th>
+        <th scope="col" class="text-center border-0">Управление</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let camera of listCamera; let i = index">
+        <td class="align-middle text-center">
+          {{i+1}}
+        </td>
+        <td class="align-middle text-center w-50">{{camera.name}}</td>
+        <td class="align-middle text-center w-50">{{camera.address}}</td>
+        <td class="align-middle text-center">
+          <div class="btn-group">
+            <button class="btn btn-sm btn-blue" (click)="itemCamera = camera; initEditCameraForm();" data-toggle="modal" data-target="#exampleModal1">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-sm btn-red" (click)="itemCamera = camera" data-toggle="modal" data-target="#exampleModal">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Удаление</h5>
+        <button type="button" class="btn-light btn btn-sm" data-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        Вы уверены что хотите удалить "{{itemCamera.name}}"?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal" (click)="deleteCamera()">Да</button>
+        <button type="button" class="btn btn-red" data-dismiss="modal">Нет</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<form [formGroup]="editCameraForm">
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold" id="exampleModalLabel1">Редактирование</h5>
+        <button type="button" class="btn-light btn btn-sm" data-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <small class="input-group-text">
+              Название:
+            </small>
+          </div>
+          <input formControlName="name" type="text" class="form-control" name="name">
+        </div>
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <small class="input-group-text">
+                IP адрес:
+              </small>
+            </div>
+            <input formControlName="address" type="text" class="form-control" name="address">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal" [disabled]="editCameraForm.invalid" (click)="editCamera(editCameraForm.value)">Сохранить</button>
+        <button type="button" class="btn btn-red" data-dismiss="modal">Отмена</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>

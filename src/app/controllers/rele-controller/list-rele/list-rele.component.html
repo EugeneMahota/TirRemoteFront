@@ -1,0 +1,108 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-7 align-self-center">
+        <h4 class="mt-1 mb-1">Реле</h4>
+      </div>
+      <div class="col-md-5 align-self-center">
+        <form [formGroup]="addReleForm">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-bolt mr-2"></i>Название:
+              </small>
+            </div>
+            <input formControlName="name" type="text" class="form-control form-control-blue form-control-sm" id="name" name="name">
+            <div class="ml-2">
+              <button class="btn btn-header btn-sm" type="submit" [disabled]="addReleForm.invalid" (click)="addRele(addReleForm.value)">ДОБАВИТЬ</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive" *ngIf="listRele.length > 0">
+    <table class="table mb-0">
+      <thead>
+      <tr>
+        <th scope="col" class="text-center border-0">#</th>
+        <th scope="col" class="text-center border-0 w-100">Название</th>
+        <th scope="col" class="text-center border-0">Управление</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let rele of listRele; let i = index">
+        <td class="align-middle text-center">
+          {{i+1}}
+        </td>
+        <td class="align-middle text-center w-100">{{rele.name}}</td>
+        <td class="align-middle text-center">
+          <div class="btn-group">
+            <button class="btn btn-sm btn-blue" (click)="itemRele = rele; initEditForm();" data-toggle="modal" data-target="#exampleModal1">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-sm btn-red" (click)="itemRele = rele" data-toggle="modal" data-target="#exampleModal">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Удаление</h5>
+        <button type="button" class="btn-light btn btn-sm" data-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        Вы уверены что хотите удалить "{{itemRele.name}}"?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal" (click)="deleteRele()">Да</button>
+        <button type="button" class="btn btn-red" data-dismiss="modal">Нет</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<form [formGroup]="editReleForm">
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-weight-bold" id="exampleModalLabel1">Редактирование</h5>
+          <button type="button" class="btn-light btn btn-sm" data-dismiss="modal" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text">
+                <i class="fas fa-bolt mr-2"></i>Название:
+              </small>
+            </div>
+            <input formControlName="name" type="text" class="form-control" name="name">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-blue" data-dismiss="modal" [disabled]="editReleForm.invalid" (click)="editRele(editReleForm.value)">Сохранить</button>
+          <button type="button" class="btn btn-red" data-dismiss="modal">Отмена</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

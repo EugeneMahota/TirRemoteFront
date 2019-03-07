@@ -1,0 +1,110 @@
+<div class="row" *ngIf="listAllRole.length > 0">
+  <div class="col-md-8 mb-3">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="mb-1 mt-1">Редактировать</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="userForm">
+          <div class="form-row">
+            <div class="form-group col-lg-4">
+              <div class="input-group">
+                <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-user mr-3"></i>Имя:
+              </span>
+                </div>
+                <input formControlName="name" type="text" class="form-control" id="name" name="name">
+              </div>
+              <small class="invalid" *ngIf="InvalidUser('name')">Имя должно состоять только из русских букв, минимаьная длинна 3 символа.</small>
+              <small class="valid" *ngIf="ValidUser('name')">Поле успешно заполненно!</small>
+              <small class="text-muted" *ngIf="!ValidUser('name') && !InvalidUser('name')">Введите имя пользователя.</small>
+            </div>
+            <div class="col-lg-8 form-group">
+              <ng-multiselect-dropdown
+                formControlName="roles"
+                class="custom-multiselect"
+                [placeholder]="'Укажите роли пользователя'"
+                [data]="listAllRole"
+                [settings]="settingsSelect"
+              >
+              </ng-multiselect-dropdown>
+              <small class="text-muted">Роли пользователя.</small>
+            </div>
+            <div class="form-group col-md-6">
+              <div class="input-group">
+                <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-envelope mr-3"></i>Email:
+              </span>
+                </div>
+              <input formControlName="email" type="text" class="form-control" id="email" name="email">
+              </div>
+              <small class="invalid" *ngIf="InvalidUser('email')">Неверный формат Email.</small>
+              <small class="valid" *ngIf="ValidUser('email')">Поле успешно заполненно!</small>
+              <small class="text-muted" *ngIf="!ValidUser('email') && !InvalidUser('email')">Введите свой Email.</small>
+            </div>
+            <div class="form-group col-md-6">
+              <div class="input-group">
+                <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-phone mr-3"></i>Телефон:
+              </span>
+                </div>
+              <input formControlName="phone" type="text" class="form-control" id="phone" name="phone" mask="0(000)000-00-00">
+              </div>
+              <small class="invalid" *ngIf="InvalidUser('phone')">Неверный формат номера телефона.</small>
+              <small class="valid" *ngIf="ValidUser('phone')">Поле успешно заполненно!</small>
+              <small class="text-muted" *ngIf="!ValidUser('phone') && !InvalidUser('phone')">Введите свой номер телефона.</small>
+            </div>
+          </div>
+          <div class="">
+            <button class="btn btn-blue pl-5 pr-5" type="submit" [disabled]="userForm.invalid" (click)="editUser(userForm.value)">Сохранить изменения</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="mb-1 mt-1">Сменить пароль</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="passwordForm">
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-key mr-3"></i> Пароль:
+              </span>
+              </div>
+            <input formControlName="password" type="password" class="form-control" id="password" name="password" autocomplete="off">
+            </div>
+            <small class="invalid" *ngIf="InvalidPassword('password')">Пароль должен быть не менее 4 символов и совпадать с введенным в другое поле.</small>
+            <small class="valid" *ngIf="ValidPassword('password')">Поле успешно заполненно!</small>
+            <small class="text-muted" *ngIf="!ValidPassword('password') && !InvalidPassword('password')">Придумайте пароль.</small>
+
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-key mr-3"></i> Пароль:
+              </span>
+              </div>
+            <input formControlName="password2" type="password" class="form-control" id="password2" name="password2" autocomplete="off">
+            </div>
+            <small class="invalid" *ngIf="InvalidPassword('password2')">Пароль должен быть не менее 4 символов и совпадать с введенным в другое поле.</small>
+            <small class="valid" *ngIf="ValidPassword('password2')">Поле успешно заполненно!</small>
+            <small class="text-muted" *ngIf="!ValidPassword('password2') && !InvalidPassword('password2')">Повторите пароль.</small>
+
+          </div>
+          <div class="">
+            <button class="btn btn-blue pl-5 pr-5" type="submit" (click)="editPassword(passwordForm.value)" [disabled]="passwordForm.invalid">Сохранить изменения</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

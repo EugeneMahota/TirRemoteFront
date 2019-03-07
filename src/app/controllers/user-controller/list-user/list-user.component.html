@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-6 align-self-center">
+        <h4 class="mb-1 mt-1">Пользователи</h4>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button class="btn btn-sm btn-header" routerLink="add">ДОБАВИТЬ</button>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0" *ngIf="listUser.length > 0">
+      <thead>
+      <tr>
+        <th scope="col" class="text-center border-0">#</th>
+        <th scope="col" class="text-center border-0 w-50">Логин</th>
+        <th scope="col" class="text-center border-0 w-50">Имя</th>
+        <th scope="col" class="text-center border-0">Управление</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of listUser; let i = index">
+        <td class="align-middle text-center">
+          {{i + 1}}
+        </td>
+        <td class="align-middle text-center w-50">{{user.login}}</td>
+        <td class="align-middle text-center w-50">{{user.name}}</td>
+        <td class="align-middle text-center">
+          <div class="btn-group">
+            <button class="btn btn-sm btn-blue" routerLink="{{user.id}}">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-sm btn-red" data-toggle="modal" data-target="#exampleModal" (click)="itemUser = user">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Удаление</h5>
+        <button type="button" class="btn-light btn btn-sm" data-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        Вы уверены что хотите удалить "{{itemUser.name}}"?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal" (click)="deleteUser()">Да</button>
+        <button type="button" class="btn btn-red" data-dismiss="modal">Нет</button>
+      </div>
+    </div>
+  </div>
+</div>

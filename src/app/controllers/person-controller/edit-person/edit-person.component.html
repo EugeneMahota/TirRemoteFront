@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="mb-1 mt-1">Редактировать</h4>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="personForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-user mr-3"></i>Имя:
+              </span>
+            </div>
+            <input type="text" class="form-control" id="name" name="name" formControlName="name" autocomplete="off">
+          </div>
+          <small class="invalid" *ngIf="InvalidPerson('name')">Имя должно содержать только русские буквы, минимальная длинна 3 символа!</small>
+          <small class="valid" *ngIf="ValidPerson('name')">Поле успешно заполненно!</small>
+          <small class="text-muted" *ngIf="!InvalidPerson('name') && !ValidPerson('name')">Введите имя оператора.</small>
+        </div>
+
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-id-card mr-3"></i>Код карты:
+              </span>
+            </div>
+            <input type="text" class="form-control" id="code_card" name="code_card" formControlName="code_card" autocomplete="off">
+          </div>
+          <small class="invalid" *ngIf="InvalidPerson('code_card')">Поле не должно быть пустым!</small>
+          <small class="valid" *ngIf="ValidPerson('code_card')">Поле успешно заполненно!</small>
+          <small class="text-muted" *ngIf="!InvalidPerson('code_card') && !ValidPerson('code_card')">Введите код карты оператора.</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="personForm.invalid" (click)="editPerson(personForm.value)" class="btn btn-blue pr-5 pl-5">Сохранить изменения</button>
+    </form>
+  </div>
+</div>

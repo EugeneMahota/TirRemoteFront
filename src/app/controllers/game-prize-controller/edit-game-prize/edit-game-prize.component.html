@@ -1,0 +1,70 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="mb-1 mt-1">Редактировать</h4>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="formGame">
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-gift mr-3"></i>Сувенир:
+              </small>
+            </div>
+            <select class="form-control" formControlName="souvenirId" id="souvenirId" name="souvenirId">
+              <option *ngFor="let souvenir of listSouvenir" value="{{souvenir.id}}">{{souvenir.name}}</option>
+            </select>
+          </div>
+          <small class="text-muted">Награда за победу в игре.</small>
+        </div>
+
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-list mr-3"></i>Положение игры:
+              </small>
+            </div>
+            <select class="form-control" formControlName="positionId" id="positionId" name="positionId">
+              <option value="">Не выводить</option>
+              <option *ngFor="let position of listPosition" value="{{position.id}}">{{position.id}}: {{position.name}} {{position.status}}</option>
+            </select>
+          </div>
+          <small class="text-muted">Позиция игры на экране запуска.</small>
+        </div>
+
+
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-bullseye mr-3"></i>Название:
+              </span>
+            </div>
+            <input type="text" class="form-control" id="name" name="name" formControlName="name" autocomplete="off">
+          </div>
+          <small class="text-muted">Название игры.</small>
+        </div>
+
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-ruble-sign mr-3"></i>Цена:
+              </span>
+            </div>
+            <input type="number" class="form-control" id="price" name="price" formControlName="price" autocomplete="off">
+          </div>
+          <small class="text-muted">Цена на проход по игре.</small>
+        </div>
+
+      </div>
+
+      <button type="submit" [disabled]="formGame.invalid" class="btn btn-blue pl-5 pr-5" (click)="editGame(formGame.value)">Сохранить изменения</button>
+
+
+    </form>
+  </div>
+</div>

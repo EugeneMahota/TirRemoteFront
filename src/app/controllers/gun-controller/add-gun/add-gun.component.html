@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="mt-1 mb-1">Новое ружье</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="gunForm">
+          <div class="form-row">
+            <div class="form-group col-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-rocket mr-3"></i>Название:
+              </span>
+                </div>
+                <input type="text" class="form-control" id="name" name="name" formControlName="name" autocomplete="off">
+              </div>
+              <small class="text-muted">Введите название ружья.</small>
+            </div>
+            <div class="form-group col-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-bolt mr-3"></i>Напряжение:
+              </span>
+                </div>
+                <input type="number" class="form-control" id="voltage" name="voltage" formControlName="voltage" autocomplete="off">
+              </div>
+              <small class="text-muted">Задайте напряжение.</small>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="image">Изображение</label>
+              <input type="file" class="form-control-file" id="image" name="image" (change)="selectImage($event)" #image>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="audio">Аудио</label>
+              <input type="file" class="form-control-file" id="audio" name="audio" (change)="selectAudio($event)" #audio>
+            </div>
+          </div>
+            <button type="submit" class="btn btn-blue pr-5 pl-5" [disabled]="gunForm.invalid || !image || !audio" (click)="addGun(gunForm.value)">Добавить ружье</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,244 @@
+<div class="wrapper">
+
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar" [ngClass]="show === true ? 'hidden-side':''">
+    <div class="side-image">
+      <div class="side-block">
+
+        <div class="header p-3 text-center pt-4">
+          <!--<img class="mb-3 logo" src="../../assets/logo2.png" height="auto" width="140"/>-->
+          <h3 class="font-weight-bold">
+            REMOTE <span class="pink">TIR</span>
+          </h3>
+        </div>
+
+        <div class="dropitem ml-3 mr-3 mb-2"></div>
+
+        <ul class="nav flex-column">
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()">
+            <a class="nav-link nav-link-side" routerLink="home" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-align-left"></i></div>
+                <div class="col-7 p-0 m-0"><span class="mt-3">Главная</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">5</span></div>-->
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'user'}]">
+            <a class="nav-link nav-link-side" routerLink="user" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-user-tie"></i></div>
+                <div class="col-7 p-0 m-0"><span class="mt-3">Пользователи</span></div>
+                <div class="col-3 text-right p-0 m-0"><span class="badge badge-light">Bobr</span></div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'person'}]">
+            <a class="nav-link nav-link-side" routerLink="person" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-user-graduate"></i></div>
+                <div class="col-7 p-0 m-0"><span class="mt-3">Операторы</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">Bobr</span></div>-->
+              </div>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="dropitem ml-3 mr-3 mb-2" *appRoles="[{code: 'camera'}, {code: 'gun'}, {code: 'rele'}]"></div>
+
+        <ul class="nav flex-column">
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'camera'}]">
+            <a class="nav-link nav-link-side" routerLink="camera" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-camera"></i></div>
+                <div class="col-7 p-0 m-0"><span class="mt-3">Камеры</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">5</span></div>-->
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'gun'}]">
+            <a class="nav-link nav-link-side" routerLink="gun" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-rocket"></i></div>
+                <div class="col-7 p-0 m-0"><span class="mt-3">Ружья</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">26</span></div>-->
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'rele'}]">
+            <a class="nav-link nav-link-side" routerLink="rele" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-bolt"></i></div>
+                <div class="col-7 p-0 m-0"><span class="mt-3">Реле</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">26</span></div>-->
+              </div>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="dropitem ml-3 mr-3 mb-2" *appRoles="[{code: 'game'}]"></div>
+
+        <ul class="nav flex-column">
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'game'}]">
+            <a class="nav-link nav-link-side" routerLink="game-prize" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-award"></i></div>
+                <div class="col-6 p-0 m-0"><span class="mt-3">Игры</span></div>
+                <div class="col-4 text-right p-0 m-0"><span class="badge badge-light">ПРИЗОВЫЕ</span></div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'game'}]">
+            <a class="nav-link nav-link-side" routerLink="game-tir" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-bullseye"></i></div>
+                <div class="col-7 p-0 m-0"><span class="mt-3">Игры</span></div>
+                <div class="col-3 text-right p-0 m-0"><span class="badge badge-light">ТИР</span></div>
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'game'}]">
+            <a class="nav-link nav-link-side" routerLink="game-arcade" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-trophy"></i></div>
+                <div class="col-7 p-0 m-0"><span class="mt-3">Игры</span></div>
+                <div class="col-3 text-right p-0 m-0"><span class="badge badge-light">АРКАДЫ</span></div>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+
+          <div class="dropitem ml-3 mr-3 mb-2" *appRoles="[{code: 'souvenir'}]"></div>
+
+        <ul class="nav flex-column">
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'souvenir'}]">
+            <a class="nav-link nav-link-side" routerLink="souvenir" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-gift"></i></div>
+                <div class="col-7 p-0 m-0"><span class="mt-3">Сувениры</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">5</span></div>-->
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'position'}]">
+            <a class="nav-link nav-link-side" routerLink="position" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-arrows-alt"></i></div>
+                <div class="col-10 p-0 m-0"><span class="mt-3">Позиционирование игр</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">5</span></div>-->
+              </div>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div id="content" class="content" [ngClass]="show === false ? 'content-show':''">
+
+    <nav class="navbar navbar-light bg-light mt-1 pl-lg-4 pr-lg-4 pl-2 pr-2" [ngClass]="show === false ? 'content-show-back':''">
+      <nav class="nav">
+        <button type="button" class="btn btn-light btn-user" (click)="Side()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-link text-muted none-sm">
+          <a class="breadcrumb-custom pagination-custom" routerLink="home">
+            Панель управления
+            <span *ngIf="breadOne" class="ml-2 mr-2">/</span>
+          </a>
+          <a class="breadcrumb-custom" (click)="onBack()" [ngClass]="breadTwo ? 'pagination-custom':''">
+            {{breadOne}}
+            <span *ngIf="breadTwo" class="ml-2 mr-2">/</span>
+          </a>
+          <a class="breadcrumb-custom" (click)="onBack()" [ngClass]="breadThree ? 'pagination-custom':''">
+            {{breadTwo}}
+            <span *ngIf="breadThree" class="ml-2 mr-2">/</span>
+          </a>
+          <a class="breadcrumb-custom">
+            {{breadThree}}
+          </a>
+        </div>
+      </nav>
+      <ul class="nav justify-content-end">
+
+        <!--<li class="nav-item pr-3">-->
+          <!--<button class="btn btn-purple rounded-circle text-muted position-relative">-->
+            <!--<span class="badge-alert rounded-circle">2</span>-->
+            <!--<i class="fas fa-envelope"></i>-->
+          <!--</button>-->
+        <!--</li>-->
+
+        <!--<li class="nav-item pr-3">-->
+          <!--<button class="btn btn-pink rounded-circle position-relative">-->
+            <!--<span class="badge-alert rounded-circle">1</span>-->
+            <!--<i class="fas fa-bell"></i>-->
+          <!--</button>-->
+        <!--</li>-->
+
+        <li class="nav-item">
+          <div class="dropdown">
+            <button class="btn btn-light btn-user" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+              <span class="">{{nameUser}}</span><i class="fas fa-user ml-2"></i><i
+              class="fas fa-angle-down ml-1"></i></button>
+
+            <div class="dropdown-menu-right dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item drp-item pt-2 pb-2" routerLink="profile"><i class="fas fa-user-edit mr-2 pagination-custom"></i>Профиль</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item drp-item pt-2 pb-2" data-toggle="modal" data-target="#exampleModal2"><i
+                class="fas fa-sign-out-alt mr-2 pagination-custom"></i>Выйти</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+
+    <div class="container-fluid pl-lg-4 pr-lg-4 pt-3 mb-4 pl-2 pr-2" [ngClass]="show === false ? 'content-show-back':''">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Выход</h5>
+        <button type="button" class="btn-light btn btn-sm" data-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{nameUser}}, вы уверены, что хотите выйти?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal" (click)="onExit()">Да</button>
+        <button type="button" class="btn btn-red" data-dismiss="modal">Не очень</button>
+      </div>
+    </div>
+  </div>
+</div>

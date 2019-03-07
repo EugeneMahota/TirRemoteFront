@@ -1,0 +1,98 @@
+.btn {
+  padding: 0.5rem 0;
+  border-radius: 25px;
+}
+.card {
+  border-radius: 3px!important;
+  background-image: url('https://cdn.wallscloud.net/converted/372597077-firewatch-E1zm-1920x1080-MM-100.jpg');
+  box-shadow: 0 16px 28px 0 rgba(0,0,0,.22),0 25px 55px 0 rgba(0,0,0,.21)!important;
+}
+.background {
+  border-radius: 3px!important;
+  background-image: linear-gradient(to right top, rgba(30, 136, 229, 0.71), rgba(24, 119, 212, 0.71), rgba(20, 103, 195, 0.71), rgba(16, 87, 178, 0.71), #0d47a1);
+}
+.pink {
+  color: #EC407A;
+}
+.input-auth::placeholder {
+  color: #e0e0e0 !important;
+}
+.input-auth {
+  color: white!important;
+  border-color: #e1e1e1;
+  background-color: rgba(255, 255, 255, 0);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+.input-auth:active, .input-auth:focus {
+  background-color: rgba(255, 255, 255, 0)!important;
+  box-shadow: none;
+  border-color: #FFFFFF!important;
+}
+.custom-control-label::after, .custom-control-label:focus, .custom-control-label:focus {
+  background-color: #EC407A;
+  box-shadow: none!important;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.white {
+  color: white;
+}
+.vk {
+  width: 70px;
+  line-height: 70px;
+  cursor: pointer;
+  background-color:#4A76A8 ;
+  color: white;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  font-size: 1.7rem;
+}
+.instagram {
+  width: 70px;
+  line-height: 70px;
+  cursor: pointer;
+  background-color:#EC407A ;
+  color: white;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  font-size: 1.7rem;
+}
+.youtube {
+  width: 70px;
+  line-height: 70px;
+  cursor: pointer;
+  background-color:#FF3547 ;
+  color: white;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  font-size: 1.7rem;
+}
+
+.social-animate:hover {
+  animation: social-animate 0.3s linear;
+}
+
+@keyframes social-animate {
+  0% {transform: scale(1)}
+  25% {transform: scale(1.1)}
+  50% {transform: scale(1.2)}
+  100% {transform: scale(1)}
+}
+.input-group-text {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: #ffffff;
+    background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}

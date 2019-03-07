@@ -1,0 +1,236 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="mb-1 mt-1">Новая игра</h4>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="formGame">
+      <div class="form-row">
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-bolt mr-3"></i>Реле старта:
+              </small>
+            </div>
+            <select class="form-control" formControlName="rele_start_id" id="rele_start_id" name="rele_start_id">
+              <option *ngFor="let rele of listRele" value="{{rele.id}}">{{rele.name}}</option>
+            </select>
+          </div>
+          <small class="text-muted">Укажите реле запуска игры.</small>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-bolt mr-3"></i>Реле окончания:
+              </small>
+            </div>
+            <select class="form-control" formControlName="rele_end_id" id="rele_end_id" name="rele_end_id">
+              <option *ngFor="let rele of listRele" value="{{rele.id}}">{{rele.name}}</option>
+            </select>
+          </div>
+          <small class="text-muted">Реле выключения игры.</small>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-list mr-3"></i>Положение игры:
+              </small>
+            </div>
+            <select class="form-control" formControlName="game_id" id="game_id" name="game_id">
+              <option value="">Не выводить</option>
+              <option *ngFor="let position of listPosition" value="{{position.id}}">{{position.id}}: {{position.name}} {{position.status}}</option>
+            </select>
+          </div>
+          <small class="text-muted">Позиция игры на экране запуска.</small>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-camera mr-3"></i>Камера старта:
+              </small>
+            </div>
+            <select class="form-control" formControlName="camera_start_id" id="camera_start_id" name="camera_start_id">
+              <option *ngFor="let camera of listCamera" value="{{camera.id}}">{{camera.address}} : {{camera.name}}</option>
+            </select>
+          </div>
+          <small class="text-muted">Укажите камеру, которая делает снимки при старте игры.</small>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-camera mr-3"></i>Камера окончания:
+              </small>
+            </div>
+            <select class="form-control" formControlName="camera_end_id" id="camera_end_id" name="camera_end_id">
+              <option *ngFor="let camera of listCamera" value="{{camera.id}}">{{camera.address}} : {{camera.name}}</option>
+            </select>
+          </div>
+          <small class="text-muted">Укажите камеру, которая делает снимки при окончании игры.</small>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-camera mr-3"></i>Камера мультифото:
+              </small>
+            </div>
+            <select class="form-control" formControlName="camera_multi_photo_id" id="camera_multi_photo_id" name="camera_multi_photo_id">
+              <option *ngFor="let camera of listCamera" value="{{camera.id}}">{{camera.address}} : {{camera.name}}</option>
+            </select>
+          </div>
+          <small class="text-muted">Укажите камеру, которая делает множественные фото игры.</small>
+        </div>
+
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-stopwatch mr-3"></i>Интервал между фото:
+              </span>
+            </div>
+            <input type="number" class="form-control" id="interval_photo" name="interval_photo" formControlName="interval_photo" autocomplete="off">
+          </div>
+          <small class="text-muted">Время между фотографиями.</small>
+        </div>
+
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-images mr-3"></i>Кол-во фото:
+              </span>
+            </div>
+            <input type="number" class="form-control" id="quant_photo" name="quant_photo" formControlName="quant_photo" autocomplete="off">
+          </div>
+          <small class="text-muted">Количество фото при мультифото.</small>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-bullseye mr-3"></i>Название:
+              </span>
+            </div>
+            <input type="text" class="form-control" id="name" name="name" formControlName="name" autocomplete="off">
+          </div>
+          <small class="text-muted">Название игры.</small>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-ruble-sign mr-3"></i>Цена:
+              </span>
+            </div>
+            <input type="number" class="form-control" id="price" name="price" formControlName="price" autocomplete="off">
+          </div>
+          <small class="text-muted">Цена на проход по игре.</small>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-gift mr-3"></i>Сувенир:
+              </small>
+            </div>
+            <select class="form-control" formControlName="type_souvenir_id" id="type_souvenir_id" name="type_souvenir_id">
+              <option *ngFor="let souvenir of listSouvenir" value="{{souvenir.id}}">{{souvenir.name}}</option>
+            </select>
+          </div>
+          <small class="text-muted">Награда за победу в игре.</small>
+        </div>
+
+        <div class="form-group col-md-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-stopwatch mr-3"></i>Макс. длит. игры:
+              </span>
+            </div>
+            <input type="number" class="form-control" id="lasting_game" name="lasting_game" formControlName="lasting_game" autocomplete="off">
+          </div>
+          <small class="text-muted">Максимальная длительность игры.</small>
+        </div>
+
+        <div class="form-group col-md-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-stopwatch mr-3"></i>Мин. длит. игры:
+              </span>
+            </div>
+            <input type="number" class="form-control" id="min_lasting_game" name="min_lasting_game" formControlName="min_lasting_game" autocomplete="off">
+          </div>
+          <small class="text-muted">Минимальная длительность игры.</small>
+        </div>
+
+        <div class="form-group col-md-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-stopwatch mr-3"></i>Длит. реле старта:
+              </span>
+            </div>
+            <input type="number" class="form-control" id="lasting_rele_start" name="lasting_rele_start" formControlName="lasting_rele_start" autocomplete="off">
+          </div>
+          <small class="text-muted">Длительность реле старта.</small>
+        </div>
+
+        <div class="form-group col-md-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-stopwatch mr-3"></i>Длит. реле окончания:
+              </span>
+            </div>
+            <input type="number" class="form-control" id="lasting_rele_end" name="lasting_rele_end" formControlName="lasting_rele_end" autocomplete="off">
+          </div>
+          <small class="text-muted">Длительность реле окончания.</small>
+        </div>
+
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="image">Изображение</label>
+          <input class="form-control-file" type="file" id="image" name="image" (change)="selectImage($event)">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="audioStart">Аудио старта</label>
+          <input class="form-control-file" type="file" id="audioStart" name="audioStart" (change)="selectAudioStart($event)">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="audioEnd">Аудио окончания</label>
+          <input class="form-control-file" type="file" id="audioEnd" name="audioEnd" (change)="selectAudioEnd($event)">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-auto">
+          <button type="submit" [disabled]="formGame.invalid || !audioStart || !audioEnd || !image" class="btn btn-blue pl-5 pr-5" (click)="addGame(formGame.value)">Добавить игру</button>
+        </div>
+        <div class="col-auto align-self-center">
+          <div class="custom-control custom-checkbox my-1">
+            <input type="checkbox" class="custom-control-input" id="fl_display" name="fl_display" formControlName="fl_display">
+            <label class="custom-control-label white" for="fl_display">Вывести игру на дисплей?</label>
+          </div>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</div>

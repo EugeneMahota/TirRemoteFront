@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="mb-1 mt-1">Новый сувенир</h4>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="souvenirForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-gift mr-3"></i>Название:
+              </span>
+            </div>
+            <input type="text" class="form-control" id="name" name="name" formControlName="name" autocomplete="off">
+          </div>
+          <small class="text-muted">Укажите название сувенира.</small>
+        </div>
+
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-list-ul mr-3"></i>Количество сувениров:
+              </span>
+            </div>
+            <input type="number" class="form-control" id="quant" name="quant" formControlName="quant" autocomplete="off">
+          </div>
+          <small class="text-muted">Установите количесвто сувениров.</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="souvenirForm.invalid" (click)="addSouvenir(souvenirForm.value)" class="btn btn-blue pr-5 pl-5">Добавить сувенир</button>
+    </form>
+  </div>
+</div>

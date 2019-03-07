@@ -1,0 +1,66 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-6 align-self-center">
+        <h4 class="mt-1 mb-1">Ружья</h4>
+      </div>
+      <div class="col-6 text-right align-self-center">
+        <button class="btn btn-sm btn-header" routerLink="add">ДОБАВИТЬ</button>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table mb-0" *ngIf="listGun.length > 0">
+      <thead>
+      <tr>
+        <th scope="col" class="text-center border-0">#</th>
+        <th scope="col" class="text-center border-0 w-50">Названия</th>
+        <th scope="col" class="text-center border-0 w-50">Напряжение</th>
+        <th scope="col" class="text-center border-0">Управление</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let gun of listGun; let i = index">
+        <td class="align-middle text-center">
+          <img src="{{gun.image}}" width="35" height="35" class="rounded-circle">
+        </td>
+        <td class="align-middle text-center w-50">{{gun.name}}</td>
+        <td class="align-middle text-center w-50">{{gun.voltage}}</td>
+        <td class="align-middle text-center">
+          <div class="btn-group">
+            <button class="btn btn-sm btn-blue" routerLink="{{gun.id}}">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-sm btn-red" (click)="itemGun = gun" data-toggle="modal" data-target="#exampleModal">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Удаление</h5>
+        <button type="button" class="btn-light btn btn-sm" data-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        Вы уверены что хотите удалить "{{itemGun.name}}"?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal" (click)="deleteGun()">Да</button>
+        <button type="button" class="btn btn-red" data-dismiss="modal">Нет</button>
+      </div>
+    </div>
+  </div>
+</div>

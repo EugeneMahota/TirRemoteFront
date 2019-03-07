@@ -1,0 +1,51 @@
+<div class="row">
+  <div [ngClass]="listPosition.length > 0 && listTypeGame.length > 0 ? '':'d-none'" class="col-lg-2 col-md-3 mb-3" *ngFor="let position of listPosition">
+    <div class="card h-100">
+      <div class="row mt-2">
+        <div class="col-6 mt-1">
+          <h6 class="pl-3">{{position.id}}</h6>
+        </div>
+        <div class="col-6 text-right">
+          <div class="btn-group pr-2">
+            <button class="btn btn-sm btn-blue" routerLink="{{position.id}}">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-sm btn-red" data-toggle="modal" data-target="#exampleModal" (click)="itemPosition = position">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h4 class="text-center mt-lg-2 mb-lg-4" *ngFor="let type of listTypeGame" [ngClass]="type.id != position.type ? 'd-none':''">{{type.name}}</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-2 col-md-3 mb-3">
+  <div class="border h-100 text-center">
+    <button class="btn btn-header mt-lg-5 mb-lg-5 m-3" routerLink="add"><i class="fas fa-plus"></i> Добавить</button>
+  </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Удаление</h5>
+        <button type="button" class="btn-light btn btn-sm" data-dismiss="modal" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        Вы уверены что хотите удалить позицию "{{itemPosition.id}}"?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-blue" data-dismiss="modal" (click)="delPosition()">Да</button>
+        <button type="button" class="btn btn-red" data-dismiss="modal">Нет</button>
+      </div>
+    </div>
+  </div>
+</div>
