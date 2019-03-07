@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {GameTir} from '../../../models/game-tir';
 import {BreadcrumbService} from '../../../services/breadcrumb.service';
 import {GameTirService} from '../../../services/game-tir.service';
@@ -11,6 +11,7 @@ import {CameraService} from '../../../services/camera.service';
 import {SouvenirService} from '../../../services/souvenir.service';
 import {ReleService} from '../../../services/rele.service';
 import {Position} from '../../../models/position';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-edit-game-tir',
@@ -24,6 +25,10 @@ export class EditGameTirComponent implements OnInit, OnDestroy {
 
   formGame: FormGroup;
 
+  @ViewChild('image') imageInput;
+  @ViewChild('audioStart') audioStartInput;
+  @ViewChild('audioEnd') audioEndInput;
+
   audioStart: File;
   audioEnd: File;
   image: File;
@@ -32,6 +37,9 @@ export class EditGameTirComponent implements OnInit, OnDestroy {
   listSouvenir: Souvenir[] = [];
   listCamera: Camera[] = [];
   listPosition: Position[] = [];
+
+  private notifier: NotifierService;
+
   constructor(private breadService: BreadcrumbService,
               private gameService: GameTirService,
               private formBuilder: FormBuilder,
@@ -39,9 +47,11 @@ export class EditGameTirComponent implements OnInit, OnDestroy {
               private route: ActivatedRoute,
               private cameraService: CameraService,
               private souvenirService: SouvenirService,
+              notifierService: NotifierService,
               private releService: ReleService) {
     this.breadService.doOneBread('Игры тира');
     this.breadService.doTwoBread('Редактирование');
+    this.notifier = notifierService;
   }
 
   ngOnInit() {
@@ -92,15 +102,41 @@ export class EditGameTirComponent implements OnInit, OnDestroy {
   }
 
   selectAudioStart(audio: any) {
-    this.audioStart = audio.target.files.item(0);
+    let file: File;
+    file = audio.target.files.item(0);
+
+    if (file.type === 'audio/mp3') {
+      this.audioStart = audio.target.files.item(0);
+    } else {
+      this.audioStartInput.nativeElement.value = null;
+      this.audioStart = null;
+      this.notifier.notify('error', 'Неверный формат аудио!');
+    }
   }
 
   selectAudioEnd(audio: any) {
-    this.audioEnd = audio.target.files.item(0);
+    let file: File;
+    file = audio.target.files.item(0);
+
+    if (file.type === 'audio/mp3') {
+      this.audioEnd = audio.target.files.item(0);
+    } else {
+      this.audioEndInput.nativeElement.value = null;
+      this.audioEnd = null;
+      this.notifier.notify('error', 'Неверный формат аудио!');
+    }
   }
 
   selectImage(image: any) {
-    this.image = image.target.files.item(0);
+    let file: File;
+    file = image.target.files.item(0);
+    if (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/jpg') {
+      this.image = image.target.files.item(0);
+    } else {
+      this.imageInput.nativeElement.value = null;
+      this.image = null;
+      this.notifier.notify('error', 'Неверный формат изображения!');
+    }
   }
 
   editGame(game: GameTir) {

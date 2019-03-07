@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Rele} from '../../../models/rele';
 import {Souvenir} from '../../../models/souvenir';
@@ -11,6 +11,7 @@ import {CameraService} from '../../../services/camera.service';
 import {ReleService} from '../../../services/rele.service';
 import {SouvenirService} from '../../../services/souvenir.service';
 import {GameArcade} from '../../../models/game-arcade';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-edit-game-arcade',
@@ -18,6 +19,10 @@ import {GameArcade} from '../../../models/game-arcade';
   styleUrls: ['./edit-game-arcade.component.scss']
 })
 export class EditGameArcadeComponent implements OnInit, OnDestroy {
+
+  @ViewChild('image') imageInput;
+  @ViewChild('audioStart') audioStartInput;
+  @ViewChild('audioEnd') audioEndInput;
 
   id: number;
   itemGame: GameArcade = new GameArcade();
@@ -32,16 +37,19 @@ export class EditGameArcadeComponent implements OnInit, OnDestroy {
   listCamera: Camera[] = [];
   listPosition: Position[] = [];
 
+  private notifier: NotifierService;
   constructor(private gameService: GameArcadeService,
               private breadService: BreadcrumbService,
               private router: Router,
               private formBuilder: FormBuilder,
               private cameraService: CameraService,
               private releService: ReleService,
+              notifierService: NotifierService,
               private souvenirService: SouvenirService,
               private route: ActivatedRoute) {
     breadService.doOneBread('Аркадные игры');
     breadService.doTwoBread('Редактировать');
+    this.notifier = notifierService;
   }
 
   ngOnInit() {
@@ -97,15 +105,41 @@ export class EditGameArcadeComponent implements OnInit, OnDestroy {
   }
 
   selectAudioStart(audio: any) {
-    this.audioStart = audio.target.files.item(0);
+    let file: File;
+    file = audio.target.files.item(0);
+
+    if (file.type === 'audio/mp3') {
+      this.audioStart = audio.target.files.item(0);
+    } else {
+      this.audioStartInput.nativeElement.value = null;
+      this.audioStart = null;
+      this.notifier.notify('error', 'Неверный формат аудио!');
+    }
   }
 
   selectAudioEnd(audio: any) {
-    this.audioEnd = audio.target.files.item(0);
+    let file: File;
+    file = audio.target.files.item(0);
+
+    if (file.type === 'audio/mp3') {
+      this.audioEnd = audio.target.files.item(0);
+    } else {
+      this.audioEndInput.nativeElement.value = null;
+      this.audioEnd = null;
+      this.notifier.notify('error', 'Неверный формат аудио!');
+    }
   }
 
   selectImage(image: any) {
-    this.image = image.target.files.item(0);
+    let file: File;
+    file = image.target.files.item(0);
+    if (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/jpg') {
+      this.image = image.target.files.item(0);
+    } else {
+      this.imageInput.nativeElement.value = null;
+      this.image = null;
+      this.notifier.notify('error', 'Неверный формат изображения!');
+    }
   }
 
   getListRele() {

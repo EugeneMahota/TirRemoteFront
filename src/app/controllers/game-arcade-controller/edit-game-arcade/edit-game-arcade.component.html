@@ -206,15 +206,15 @@
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="image">Изображение</label>
-          <input class="form-control-file" type="file" id="image" name="image" (change)="selectImage($event)">
+          <input class="form-control-file" type="file" id="image" name="image" (change)="selectImage($event)" #image>
         </div>
         <div class="form-group col-md-4">
           <label for="audioStart">Аудио старта</label>
-          <input class="form-control-file" type="file" id="audioStart" name="audioStart" (change)="selectAudioStart($event)">
+          <input class="form-control-file" type="file" id="audioStart" name="audioStart" (change)="selectAudioStart($event)" #audioStart>
         </div>
         <div class="form-group col-md-4">
           <label for="audioEnd">Аудио окончания</label>
-          <input class="form-control-file" type="file" id="audioEnd" name="audioEnd" (change)="selectAudioEnd($event)">
+          <input class="form-control-file" type="file" id="audioEnd" name="audioEnd" (change)="selectAudioEnd($event)" #audioEnd>
         </div>
       </div>
 
