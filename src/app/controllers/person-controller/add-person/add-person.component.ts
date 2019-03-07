@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-add-person',
   templateUrl: './add-person.component.html',
-  styleUrls: ['./add-person.component.css']
+  styleUrls: ['./add-person.component.scss']
 })
 export class AddPersonComponent implements OnInit, OnDestroy {
 

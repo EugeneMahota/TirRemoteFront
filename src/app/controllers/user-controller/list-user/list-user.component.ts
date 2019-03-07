@@ -6,7 +6,7 @@ import {BreadcrumbService} from '../../../services/breadcrumb.service';
 @Component({
   selector: 'app-list-user',
   templateUrl: './list-user.component.html',
-  styleUrls: ['./list-user.component.css']
+  styleUrls: ['./list-user.component.scss']
 })
 export class ListUserComponent implements OnInit, OnDestroy {
 

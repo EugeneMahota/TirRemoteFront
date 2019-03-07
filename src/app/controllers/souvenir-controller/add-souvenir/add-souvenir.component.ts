@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-add-souvenir',
   templateUrl: './add-souvenir.component.html',
-  styleUrls: ['./add-souvenir.component.css']
+  styleUrls: ['./add-souvenir.component.scss']
 })
 export class AddSouvenirComponent implements OnInit, OnDestroy {
 

@@ -10,7 +10,7 @@ const ipPattern =
 @Component({
   selector: 'app-list-camera',
   templateUrl: './list-camera.component.html',
-  styleUrls: ['./list-camera.component.css']
+  styleUrls: ['./list-camera.component.scss']
 })
 export class ListCameraComponent implements OnInit, OnDestroy {
 

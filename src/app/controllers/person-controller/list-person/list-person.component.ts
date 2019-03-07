@@ -6,7 +6,7 @@ import {PersonService} from '../../../services/person.service';
 @Component({
   selector: 'app-list-person',
   templateUrl: './list-person.component.html',
-  styleUrls: ['./list-person.component.css']
+  styleUrls: ['./list-person.component.scss']
 })
 export class ListPersonComponent implements OnInit, OnDestroy {
 

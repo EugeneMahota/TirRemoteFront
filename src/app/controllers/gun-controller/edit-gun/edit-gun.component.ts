@@ -9,7 +9,7 @@ import {NotifierService} from 'angular-notifier';
 @Component({
   selector: 'app-edit-gun',
   templateUrl: './edit-gun.component.html',
-  styleUrls: ['./edit-gun.component.css']
+  styleUrls: ['./edit-gun.component.scss']
 })
 export class EditGunComponent implements OnInit, OnDestroy {
 

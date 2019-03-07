@@ -7,7 +7,7 @@ import {Location} from '@angular/common';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
 
@@ -18,13 +18,20 @@ export class DashboardComponent implements OnInit {
   breadThree: string;
 
   nameUser: string;
+
   constructor(private authService: AuthService,
               private router: Router,
               private breadService: BreadcrumbService,
               private location: Location) {
-    this.breadService.onOneBread.subscribe(bread => { this.breadOne = bread });
-    this.breadService.onTwoBread.subscribe(bread => { this.breadTwo = bread });
-    this.breadService.onThreeBread.subscribe(bread => { this.breadThree = bread });
+    this.breadService.onOneBread.subscribe(bread => {
+      this.breadOne = bread;
+    });
+    this.breadService.onTwoBread.subscribe(bread => {
+      this.breadTwo = bread;
+    });
+    this.breadService.onThreeBread.subscribe(bread => {
+      this.breadThree = bread;
+    });
   }
 
   ngOnInit() {

@@ -6,7 +6,7 @@ import {GameTirService} from '../../../services/game-tir.service';
 @Component({
   selector: 'app-list-game-tir',
   templateUrl: './list-game-tir.component.html',
-  styleUrls: ['./list-game-tir.component.css']
+  styleUrls: ['./list-game-tir.component.scss']
 })
 export class ListGameTirComponent implements OnInit, OnDestroy {
 

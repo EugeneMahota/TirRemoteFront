@@ -6,7 +6,7 @@ import {SouvenirService} from '../../../services/souvenir.service';
 @Component({
   selector: 'app-list-souvenir',
   templateUrl: './list-souvenir.component.html',
-  styleUrls: ['./list-souvenir.component.css']
+  styleUrls: ['./list-souvenir.component.scss']
 })
 export class ListSouvenirComponent implements OnInit, OnDestroy {
 

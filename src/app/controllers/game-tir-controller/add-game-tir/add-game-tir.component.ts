@@ -16,7 +16,7 @@ import {NotifierService} from 'angular-notifier';
 @Component({
   selector: 'app-add-game-tir',
   templateUrl: './add-game-tir.component.html',
-  styleUrls: ['./add-game-tir.component.css']
+  styleUrls: ['./add-game-tir.component.scss']
 })
 export class AddGameTirComponent implements OnInit, OnDestroy {
 

@@ -8,7 +8,7 @@ import {Souvenir} from '../../../models/souvenir';
 @Component({
   selector: 'app-edit-souvenir',
   templateUrl: './edit-souvenir.component.html',
-  styleUrls: ['./edit-souvenir.component.css']
+  styleUrls: ['./edit-souvenir.component.scss']
 })
 export class EditSouvenirComponent implements OnInit, OnDestroy {
 

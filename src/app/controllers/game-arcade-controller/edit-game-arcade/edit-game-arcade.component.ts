@@ -38,6 +38,7 @@ export class EditGameArcadeComponent implements OnInit, OnDestroy {
   listPosition: Position[] = [];
 
   private notifier: NotifierService;
+
   constructor(private gameService: GameArcadeService,
               private breadService: BreadcrumbService,
               private router: Router,

@@ -8,7 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-edit-person',
   templateUrl: './edit-person.component.html',
-  styleUrls: ['./edit-person.component.css']
+  styleUrls: ['./edit-person.component.scss']
 })
 export class EditPersonComponent implements OnInit, OnDestroy {
 

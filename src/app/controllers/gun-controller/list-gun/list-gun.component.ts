@@ -6,7 +6,7 @@ import {BreadcrumbService} from '../../../services/breadcrumb.service';
 @Component({
   selector: 'app-list-gun',
   templateUrl: './list-gun.component.html',
-  styleUrls: ['./list-gun.component.css']
+  styleUrls: ['./list-gun.component.scss']
 })
 export class ListGunComponent implements OnInit, OnDestroy {
 

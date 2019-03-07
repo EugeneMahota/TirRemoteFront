@@ -7,7 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-list-rele',
   templateUrl: './list-rele.component.html',
-  styleUrls: ['./list-rele.component.css']
+  styleUrls: ['./list-rele.component.scss']
 })
 export class ListReleComponent implements OnInit, OnDestroy {
 
