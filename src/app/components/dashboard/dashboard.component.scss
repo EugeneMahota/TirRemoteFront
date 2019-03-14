@@ -1,4 +1,11 @@
-
+//side scrolle
+.side-block::-webkit-scrollbar { width: 0px; height: 3px;}
+.side-block::-webkit-scrollbar-button {  background-color: #1E88E5; }
+.side-block::-webkit-scrollbar-track {  background-color: #1E88E5;}
+.side-block::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+.side-block::-webkit-scrollbar-thumb { height: 50px; background-color: #1E88E5; border-radius: 3px;}
+.side-block::-webkit-scrollbar-corner { background-color: #1E88E5;}
+.side-block::-webkit-resizer { background-color: #1E88E5;}
 /*Общий контейнер*/
 .wrapper {
   display: flex;
@@ -108,7 +115,7 @@
   transition: all 0.3s;
   color: #FFFFFF!important;
   border-radius: 1px!important;
-  background-color: #43a047;
+  background-color: #43a047!important;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
 .breadcrumb-custom {
@@ -147,3 +154,6 @@
   border: 2px solid #FAFAFA;
 }
 
+ul {
+  list-style-type: none;
+}

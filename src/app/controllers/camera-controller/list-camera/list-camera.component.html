@@ -1,33 +1,33 @@
 <div class="card">
   <div class="card-header">
     <div class="row">
-      <div class="col-md-4 align-self-center">
+      <div class="col-md-5 align-self-center">
         <h4 class="mt-1 mb-1">Камеры</h4>
       </div>
-      <div class="col-md-8 align-self-center">
+      <div class="col-md-7 align-self-center text-right">
         <form [formGroup]="addCameraForm">
           <div class="row">
             <div class="col-lg-5">
               <div class="input-group">
-                <div class="input-group-prepend">
-                  <small class="input-group-text input-group-text-blue">
-                    Название:
-                  </small>
-                </div>
-                <input formControlName="name" type="text" class="form-control form-control-blue form-control-sm" id="name" name="name">
+                <!--<div class="input-group-prepend">-->
+                  <!--<small class="input-group-text input-group-text-blue">-->
+                    <!--Название:-->
+                  <!--</small>-->
+                <!--</div>-->
+                <input formControlName="name" type="text" class="form-control form-control-blue form-control-sm" id="name" name="name" placeholder="Название">
               </div>
             </div>
             <div class="col-lg-5">
               <div class="input-group">
-                <div class="input-group-prepend">
-                  <small class="input-group-text input-group-text-blue">
-                    IP адрес:
-                  </small>
-                </div>
-                <input formControlName="address" type="text" class="form-control form-control-blue form-control-sm" id="address" name="address">
+                <!--<div class="input-group-prepend">-->
+                  <!--<small class="input-group-text input-group-text-blue">-->
+                    <!--IP адрес:-->
+                  <!--</small>-->
+                <!--</div>-->
+                <input formControlName="address" type="text" class="form-control form-control-blue form-control-sm" id="address" name="address" placeholder="IP адрес">
               </div>
             </div>
-            <div class="col-lg-2 text-right">
+            <div class="col-lg-2">
                 <button class="btn btn-header btn-sm" type="submit" [disabled]="addCameraForm.invalid" (click)="addCamera(addCameraForm.value)">ДОБАВИТЬ</button>
             </div>
           </div>

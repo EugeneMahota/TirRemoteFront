@@ -3,11 +3,34 @@ import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {BreadcrumbService} from '../../services/breadcrumb.service';
 import {Location} from '@angular/common';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  animations: [
+    trigger('dropdown', [
+    state('void', style({
+      marginLeft: '-228px',
+      opacity: 0
+    })),
+    state('*', style({
+      marginTop: 0,
+      opacity: 1
+    })),
+    transition('void=>*, *=>void', animate('200ms ease-in-out'))
+  ]),
+    trigger('arrow', [
+      state('right', style({
+        transform: 'rotate(0deg)'
+      })),
+      state('bottom', style({
+        transform: 'rotate(90deg)'
+      })),
+      transition('right<=>bottom', animate('200ms ease-in-out'))
+    ])
+  ]
 })
 export class DashboardComponent implements OnInit {
 
@@ -18,6 +41,9 @@ export class DashboardComponent implements OnInit {
   breadThree: string;
 
   nameUser: string;
+
+  dropDownGame = false;
+  dropDownReport = false;
 
   constructor(private authService: AuthService,
               private router: Router,

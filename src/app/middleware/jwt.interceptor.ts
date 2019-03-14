@@ -75,7 +75,9 @@ export class JwtInterceptor implements HttpInterceptor {
   }
 
   hideLoading() {
-    this.loadingService.hideLoading();
+    setTimeout(() => {
+      this.loadingService.hideLoading();
+    }, 500);
   }
 
   showLoading() {

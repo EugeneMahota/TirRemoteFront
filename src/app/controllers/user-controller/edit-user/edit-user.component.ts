@@ -90,7 +90,7 @@ export class EditUserComponent implements OnInit, OnDestroy {
   editUser(user: User) {
     this.userService.putUser(user).subscribe(res => {
       if (res.status === 200) {
-        // this.router.navigate(['dashboard', 'user']);
+        this.router.navigate(['dashboard', 'user']);
       }
     });
   }

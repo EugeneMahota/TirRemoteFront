@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Souvenir} from '../models/souvenir';
 import {Observable} from 'rxjs';
-import {environment} from '../../environments/environment.prod';
 import {map} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
 
 const httpHeaders = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 

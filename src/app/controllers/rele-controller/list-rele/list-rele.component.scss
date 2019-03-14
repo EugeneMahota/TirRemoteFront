@@ -1,13 +1,8 @@
 .form-control-blue {
-  background-color: #1565C0;
+  background-color: #FFFFFF;
+  border-radius: 2px!important;
   border-color: white;
-  color: white;
-  -webkit-text-fill-color: #FFFFFF;
-}
-@-webkit-keyframes autofill {
-  to {
-    background: transparent;
-  }
+  color: #1565C0!important;
 }
 .input-group-text-blue {
   font-size: 0.9rem;

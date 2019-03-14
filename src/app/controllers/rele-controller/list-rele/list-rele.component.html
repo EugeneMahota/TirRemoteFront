@@ -7,12 +7,12 @@
       <div class="col-md-5 align-self-center">
         <form [formGroup]="addReleForm">
           <div class="input-group">
-            <div class="input-group-prepend">
-              <small class="input-group-text input-group-text-blue">
-                <i class="fas fa-bolt mr-2"></i>Название:
-              </small>
-            </div>
-            <input formControlName="name" type="text" class="form-control form-control-blue form-control-sm" id="name" name="name">
+            <!--<div class="input-group-prepend">-->
+              <!--<small class="input-group-text input-group-text-blue">-->
+                <!--<i class="fas fa-bolt mr-2"></i>Название:-->
+              <!--</small>-->
+            <!--</div>-->
+            <input formControlName="name" type="text" class="form-control form-control-blue form-control-sm" id="name" name="name" placeholder="Название">
             <div class="ml-2">
               <button class="btn btn-header btn-sm" type="submit" [disabled]="addReleForm.invalid" (click)="addRele(addReleForm.value)">ДОБАВИТЬ</button>
             </div>

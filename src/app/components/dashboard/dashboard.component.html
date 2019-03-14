@@ -5,10 +5,10 @@
     <div class="side-image">
       <div class="side-block">
 
-        <div class="header p-3 text-center pt-4">
-          <!--<img class="mb-3 logo" src="../../assets/logo2.png" height="auto" width="140"/>-->
-          <h3 class="font-weight-bold">
-            REMOTE <span class="pink">TIR</span>
+        <div class="p-3 text-center pt-4">
+          <img class="mb-3" src="../../assets/logo.png" height="auto" width="140"/>
+          <h3>
+            REMOTE <span class="pink font-weight-bold">TIR</span>
           </h3>
         </div>
 
@@ -86,14 +86,25 @@
 
         <div class="dropitem ml-3 mr-3 mb-2" *appRoles="[{code: 'game'}]"></div>
 
-        <ul class="nav flex-column">
+        <ul class="list-group">
+          <li class="nav-item ml-3 mr-3 mb-2" *appRoles="[{code: 'game'}]" (click)="dropDownGame = !dropDownGame">
+            <a class="nav-link nav-link-side" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-10 p-0 m-0"><span class="mt-3">Управление играми</span></div>
+                <div class="col-2 text-right p-0 m-0"><i [@arrow]="!dropDownGame ? 'right':'bottom'" class="fas fa-caret-right"></i></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="list-group" [@dropdown]="dropDownGame" *ngIf="dropDownGame">
 
           <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'game'}]">
             <a class="nav-link nav-link-side" routerLink="game-prize" routerLinkActive="active">
               <div class="row p-0 m-0">
                 <div class="col-2 p-0 m-0"><i class="fas fa-award"></i></div>
-                <div class="col-6 p-0 m-0"><span class="mt-3">Игры</span></div>
-                <div class="col-4 text-right p-0 m-0"><span class="badge badge-light">ПРИЗОВЫЕ</span></div>
+                <div class="col-10 p-0 m-0"><span class="mt-3">Призовые игры</span></div>
+                <!--<div class="col-4 text-right p-0 m-0"><span class="badge badge-light">ПРИЗОВЫЕ</span></div>-->
               </div>
             </a>
           </li>
@@ -102,8 +113,8 @@
             <a class="nav-link nav-link-side" routerLink="game-tir" routerLinkActive="active">
               <div class="row p-0 m-0">
                 <div class="col-2 p-0 m-0"><i class="fas fa-bullseye"></i></div>
-                <div class="col-7 p-0 m-0"><span class="mt-3">Игры</span></div>
-                <div class="col-3 text-right p-0 m-0"><span class="badge badge-light">ТИР</span></div>
+                <div class="col-10 p-0 m-0"><span class="mt-3">Игры тира</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">ТИР</span></div>-->
               </div>
             </a>
           </li>
@@ -112,18 +123,17 @@
             <a class="nav-link nav-link-side" routerLink="game-arcade" routerLinkActive="active">
               <div class="row p-0 m-0">
                 <div class="col-2 p-0 m-0"><i class="fas fa-trophy"></i></div>
-                <div class="col-7 p-0 m-0"><span class="mt-3">Игры</span></div>
-                <div class="col-3 text-right p-0 m-0"><span class="badge badge-light">АРКАДЫ</span></div>
+                <div class="col-10 p-0 m-0"><span class="mt-3">Аркадные игры</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">АРКАДЫ</span></div>-->
               </div>
             </a>
           </li>
 
         </ul>
 
-          <div class="dropitem ml-3 mr-3 mb-2" *appRoles="[{code: 'souvenir'}]"></div>
+        <div class="dropitem ml-3 mr-3 mb-2" *appRoles="[{code: 'souvenir'}, {code: 'position'}]"></div>
 
-        <ul class="nav flex-column">
-
+        <ul class="list-group">
           <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'souvenir'}]">
             <a class="nav-link nav-link-side" routerLink="souvenir" routerLinkActive="active">
               <div class="row p-0 m-0">
@@ -143,6 +153,53 @@
               </div>
             </a>
           </li>
+        </ul>
+
+
+        <div class="dropitem ml-3 mr-3 mb-2" *appRoles="[{code: 'reportGame'}, {code: 'reportEvent'}, {code: 'reportUser'}]"></div>
+
+        <ul class="list-group">
+          <li class="nav-item ml-3 mr-3 mb-2" *appRoles="[{code: 'reportGame'}, {code: 'reportEvent'}, {code: 'reportUser'}]" (click)="dropDownReport = !dropDownReport">
+            <a class="nav-link nav-link-side" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-10 p-0 m-0"><span class="mt-3">Просмотр отчетов</span></div>
+                <div class="col-2 text-right p-0 m-0"><i [@arrow]="!dropDownReport ? 'right':'bottom'" class="fas fa-caret-right"></i></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="list-group" [@dropdown]="dropDownReport" *ngIf="dropDownReport">
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'reportGame'}]">
+            <a class="nav-link nav-link-side" routerLink="report-game" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-file-alt"></i></div>
+                <div class="col-10 p-0 m-0"><span class="mt-3">Отчет по играм</span></div>
+                <!--<div class="col-4 text-right p-0 m-0"><span class="badge badge-light">ПРИЗОВЫЕ</span></div>-->
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'reportEvent'}]">
+            <a class="nav-link nav-link-side" routerLink="report-event" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-file-video"></i></div>
+                <div class="col-10 p-0 m-0"><span class="mt-3">Логирование событий</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">ТИР</span></div>-->
+              </div>
+            </a>
+          </li>
+
+          <li class="nav-item ml-3 mr-3 mb-2" (click)="ShowDisplaySm()" *appRoles="[{code: 'reportUser'}]">
+            <a class="nav-link nav-link-side" routerLink="report-person" routerLinkActive="active">
+              <div class="row p-0 m-0">
+                <div class="col-2 p-0 m-0"><i class="fas fa-file-alt"></i></div>
+                <div class="col-10 p-0 m-0"><span class="mt-3">Отчет по операторам</span></div>
+                <!--<div class="col-3 text-right p-0 m-0"><span class="badge badge-light">АРКАДЫ</span></div>-->
+              </div>
+            </a>
+          </li>
 
         </ul>
 
@@ -154,7 +211,8 @@
   <!-- Page Content -->
   <div id="content" class="content" [ngClass]="show === false ? 'content-show':''">
 
-    <nav class="navbar navbar-light bg-light mt-1 pl-lg-4 pr-lg-4 pl-2 pr-2" [ngClass]="show === false ? 'content-show-back':''">
+    <nav class="navbar navbar-light bg-light mt-1 pl-lg-3 pr-lg-3 pl-2 pr-2"
+         [ngClass]="show === false ? 'content-show-back':''">
       <nav class="nav">
         <button type="button" class="btn btn-light btn-user" (click)="Side()">
           <i class="fas fa-bars"></i>
@@ -180,17 +238,17 @@
       <ul class="nav justify-content-end">
 
         <!--<li class="nav-item pr-3">-->
-          <!--<button class="btn btn-purple rounded-circle text-muted position-relative">-->
-            <!--<span class="badge-alert rounded-circle">2</span>-->
-            <!--<i class="fas fa-envelope"></i>-->
-          <!--</button>-->
+        <!--<button class="btn btn-purple rounded-circle text-muted position-relative">-->
+        <!--<span class="badge-alert rounded-circle">2</span>-->
+        <!--<i class="fas fa-envelope"></i>-->
+        <!--</button>-->
         <!--</li>-->
 
         <!--<li class="nav-item pr-3">-->
-          <!--<button class="btn btn-pink rounded-circle position-relative">-->
-            <!--<span class="badge-alert rounded-circle">1</span>-->
-            <!--<i class="fas fa-bell"></i>-->
-          <!--</button>-->
+        <!--<button class="btn btn-pink rounded-circle position-relative">-->
+        <!--<span class="badge-alert rounded-circle">1</span>-->
+        <!--<i class="fas fa-bell"></i>-->
+        <!--</button>-->
         <!--</li>-->
 
         <li class="nav-item">
@@ -201,7 +259,8 @@
               class="fas fa-angle-down ml-1"></i></button>
 
             <div class="dropdown-menu-right dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item drp-item pt-2 pb-2" routerLink="profile"><i class="fas fa-user-edit mr-2 pagination-custom"></i>Профиль</a>
+              <a class="dropdown-item drp-item pt-2 pb-2" routerLink="profile"><i
+                class="fas fa-user-edit mr-2 pagination-custom"></i>Профиль</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item drp-item pt-2 pb-2" data-toggle="modal" data-target="#exampleModal2"><i
                 class="fas fa-sign-out-alt mr-2 pagination-custom"></i>Выйти</a>
@@ -212,7 +271,8 @@
     </nav>
 
 
-    <div class="container-fluid pl-lg-4 pr-lg-4 pt-3 mb-4 pl-2 pr-2" [ngClass]="show === false ? 'content-show-back':''">
+    <div class="container-fluid pl-lg-3 pr-lg-3 pt-2 mb-4 pl-2 pr-2"
+         [ngClass]="show === false ? 'content-show-back':''">
       <router-outlet></router-outlet>
     </div>
 

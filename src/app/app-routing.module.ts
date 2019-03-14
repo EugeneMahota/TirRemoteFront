@@ -32,6 +32,9 @@ import {EditGamePrizeComponent} from './controllers/game-prize-controller/edit-g
 import {ListPositionComponent} from './controllers/position-controller/list-position/list-position.component';
 import {AddPositionComponent} from './controllers/position-controller/add-position/add-position.component';
 import {EditPositionComponent} from './controllers/position-controller/edit-position/edit-position.component';
+import {ReportGameComponent} from './controllers/report-controller/report-game/report-game.component';
+import {ReportEventComponent} from './controllers/report-controller/report-event/report-event.component';
+import {ReportPersonComponent} from './controllers/report-controller/report-person/report-person.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -79,6 +82,10 @@ const routes: Routes = [
       {path: 'position', component: ListPositionComponent, data: {roles: [{code: 'position'}]}, canActivate: [RoleGuard]},
       {path: 'position/add', component: AddPositionComponent, data: {roles: [{code: 'position'}]}, canActivate: [RoleGuard]},
       {path: 'position/:id', component: EditPositionComponent, data: {roles: [{code: 'position'}]}, canActivate: [RoleGuard]},
+
+      {path: 'report-game', component: ReportGameComponent, data: {roles: [{code: 'reportGame'}]}, canActivate: [RoleGuard]},
+      {path: 'report-event', component: ReportEventComponent, data: {roles: [{code: 'reportEvent'}]}, canActivate: [RoleGuard]},
+      {path: 'report-person', component: ReportPersonComponent, data: {roles: [{code: 'reportUser'}]}, canActivate: [RoleGuard]},
 
       {path: '**', component: HomeComponent}
     ]
