@@ -1,5 +1,7 @@
 export class ReportEvent {
+  event: string;
   name: string;
   quant: number;
-  price: number;
+  photo: string;
+  date: Date;
 }

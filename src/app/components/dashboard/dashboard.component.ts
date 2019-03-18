@@ -42,8 +42,8 @@ export class DashboardComponent implements OnInit {
 
   nameUser: string;
 
-  dropDownGame = false;
-  dropDownReport = false;
+  dropDownGame: boolean;
+  dropDownReport: boolean;
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -63,6 +63,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.nameUser = this.authService.getNameUser();
     this.show = JSON.parse(localStorage.getItem('show')) || false;
+
+    this.saveDrop();
   }
 
   onExit() {
@@ -83,6 +85,21 @@ export class DashboardComponent implements OnInit {
 
   onBack() {
     this.location.back();
+  }
+
+  dropGame() {
+    this.dropDownGame = !this.dropDownGame;
+    localStorage.setItem('dropDownGame', JSON.stringify(this.dropDownGame));
+  }
+
+  dropReport() {
+    this.dropDownReport = !this.dropDownReport;
+    localStorage.setItem('dropDownReport', JSON.stringify(this.dropDownReport));
+  }
+
+  saveDrop() {
+    this.dropDownReport = JSON.parse(localStorage.getItem('dropDownReport')) || false;
+    this.dropDownGame = JSON.parse(localStorage.getItem('dropDownGame')) || false;
   }
 
 }

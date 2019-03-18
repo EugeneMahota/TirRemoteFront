@@ -1,0 +1,91 @@
+$borderRadius: 2px;
+$boxShadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+$darkGreyColor: #212121;
+
+.dropdown-menu {
+  border-radius: $borderRadius !important;
+  box-shadow: $boxShadow;
+}
+
+.input-group {
+  border-radius: $borderRadius !important;
+  box-shadow: $boxShadow;
+}
+
+.form-control {
+  color: $darkGreyColor;
+}
+
+.btn-append {
+  color: #0d47a1;
+  background-color: lighten(#0d47a1, 60);
+}
+
+.icon-back {
+  color: lighten(#0d47a1, 55);
+}
+
+.btn-drop {
+  border-radius: 0!important;
+  box-shadow: none !important;
+  background-color: white;
+  &:hover {
+    background-color: lighten(#0d47a1, 60);
+    color: #0d47a1;
+  }
+}
+
+.btn-drop-active {
+  border-radius: 0!important;
+  box-shadow: none !important;
+  background-color: lighten(#0d47a1, 60);
+  color: #0d47a1;
+}
+
+.btn-width {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.border-radius-left {
+  border-top-left-radius: $borderRadius;
+  border-bottom-left-radius: $borderRadius;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.border-radius-right {
+  border-top-right-radius: $borderRadius;
+  border-bottom-right-radius: $borderRadius;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.active {
+  border-color: lighten(#0d47a1, 60);
+  background-color: lighten(#0d47a1, 60);
+  color: #0d47a1;
+}
+
+.btn-group {
+  box-shadow: $boxShadow;
+  .btn {
+  }
+  .btn:last-child {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .btn-width {
+    //width: 70px!important;
+  }
+}
+
+@media (max-width: 768px) {
+  .d-none-xs {
+    display: none;
+  }
+}

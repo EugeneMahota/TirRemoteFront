@@ -8,20 +8,22 @@
 @import "~angular-notifier/styles/types/type-success.scss";
 @import "~angular-notifier/styles/types/type-info.scss";
 
-//@import "~ng-pick-datetime/assets/style/picker.min.css";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
 
 $lightBlueColor: #1e88e5;
 $blueColor: #1565c0;
+$darkBlue: #0d47a1;
 $redColor: #e53935;
 $greenColor: #43a047;
 $pinkColor: #EC407A;
 $greyColor: #9E9E9E;
+$blueGrey: #90a4ae;
 $lightGreyColor: #e0e0e0;
 $darkGreyColor: #212121;
 $whiteColor: #FFFFFF;
 
 $borderRadius: 2px;
-$boxShadow: 0 2px 4px rgba(0, 0, 0, .2);
+$boxShadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
 
 body {
   font-family: 'Oswald', sans-serif;
@@ -34,10 +36,10 @@ body {
   border-radius: $borderRadius;
   .card-header {
     border: none;
-    border-top-left-radius: $borderRadius;
-    border-top-right-radius: $borderRadius;
-    background-color: $blueColor;
-    color: #FFFFFF;
+    border-top-left-radius: $borderRadius!important;
+    border-top-right-radius: $borderRadius!important;
+    background-color: lighten($darkBlue, 60);
+    color: $darkBlue;
   }
 }
 .input-group-text {
@@ -86,42 +88,49 @@ body {
   }
 }
 
-@mixin btn($color) {
-  background-color: $color;
-  border-color: $color;
-  color: $whiteColor;
+@mixin btn($bgColor, $color) {
+  background-color: $bgColor;
+  border-color: $bgColor;
+  color: $color;
   box-shadow: $boxShadow;
   &:active {
-    background-color: darken($color, 15%)!important;
-    border-color: darken($color, 15%)!important;
-    color: $whiteColor!important;
+    background-color: darken($bgColor, 15%)!important;
+    border-color: darken($bgColor, 15%)!important;
+    color: $color!important;
   }
   &:hover {
-    background-color: lighten($color, 10%);
-    border-color: lighten($color, 10%);
-    color: $whiteColor;
+    background-color: lighten($bgColor, 10%);
+    border-color: lighten($bgColor, 10%);
+    color: $color;
     transition: all 0.3s;
   }
   &:focus {
-    background-color: lighten($color, 5%);
-    border-color: lighten($color, 5%);
-    color: $whiteColor;
+    background-color: lighten($bgColor, 5%);
+    border-color: lighten($bgColor, 5%);
+    color: $color;
   }
 }
 .btn-header {
-  @include btn($lightBlueColor);
+  @include btn($lightBlueColor, $whiteColor);
 }
 
 .btn-pink {
-  @include btn($pinkColor);
+  @include btn($pinkColor, $whiteColor);
 }
 
 .btn-blue {
-  @include btn($blueColor);
+  @include btn($blueColor, $whiteColor);
 }
 
 .btn-red {
- @include btn($redColor);
+ @include btn($redColor, $whiteColor);
+}
+.btn-grey {
+  @include btn($blueGrey, $whiteColor);
+}
+
+.btn-white {
+  @include btn($whiteColor, $darkGreyColor);
 }
 
 .pink {

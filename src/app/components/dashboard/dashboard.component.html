@@ -3,11 +3,11 @@
   <!-- Sidebar -->
   <nav id="sidebar" class="sidebar" [ngClass]="show === true ? 'hidden-side':''">
     <div class="side-image">
-      <div class="side-block">
+      <div class="side-block pb-3">
 
-        <div class="p-3 text-center pt-4">
-          <img class="mb-3" src="../../assets/logo.png" height="auto" width="140"/>
-          <h3>
+        <div class="p-3 text-center pt-3">
+          <!--<img class="mb-3" src="../../assets/logo.png" height="auto" width="140"/>-->
+          <h3 class="mb-0">
             REMOTE <span class="pink font-weight-bold">TIR</span>
           </h3>
         </div>
@@ -87,7 +87,7 @@
         <div class="dropitem ml-3 mr-3 mb-2" *appRoles="[{code: 'game'}]"></div>
 
         <ul class="list-group">
-          <li class="nav-item ml-3 mr-3 mb-2" *appRoles="[{code: 'game'}]" (click)="dropDownGame = !dropDownGame">
+          <li class="nav-item ml-3 mr-3 mb-2" *appRoles="[{code: 'game'}]" (click)="dropGame()">
             <a class="nav-link nav-link-side" routerLinkActive="active">
               <div class="row p-0 m-0">
                 <div class="col-10 p-0 m-0"><span class="mt-3">Управление играми</span></div>
@@ -159,7 +159,8 @@
         <div class="dropitem ml-3 mr-3 mb-2" *appRoles="[{code: 'reportGame'}, {code: 'reportEvent'}, {code: 'reportUser'}]"></div>
 
         <ul class="list-group">
-          <li class="nav-item ml-3 mr-3 mb-2" *appRoles="[{code: 'reportGame'}, {code: 'reportEvent'}, {code: 'reportUser'}]" (click)="dropDownReport = !dropDownReport">
+          <li class="nav-item ml-3 mr-3 mb-2" *appRoles="[{code: 'reportGame'}, {code: 'reportEvent'}, {code: 'reportUser'}]"
+              (click)="dropReport()">
             <a class="nav-link nav-link-side" routerLinkActive="active">
               <div class="row p-0 m-0">
                 <div class="col-10 p-0 m-0"><span class="mt-3">Просмотр отчетов</span></div>

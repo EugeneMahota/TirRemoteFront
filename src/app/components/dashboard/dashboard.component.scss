@@ -22,7 +22,7 @@
   max-width: 260px;
   min-height: 100vh;
   overflow-x:hidden;
-  background-image: url("https://cdn.wallscloud.net/converted/372597077-firewatch-E1zm-1920x1080-MM-100.jpg");
+  background-image: url("https://images.wallpaperscraft.ru/image/kamni_gravij_poverkhnost_118937_1920x1080.jpg");
   background-attachment: fixed;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
@@ -33,7 +33,7 @@
 }
 /*блок прокрутки*/
 .side-block {
-  background-image: linear-gradient(to right top, rgba(30, 136, 229, 0.8), rgba(24, 119, 212, 0.8), rgba(20, 103, 195, 0.8), rgba(16, 87, 178, 0.8), #0d47a1);
+  background-image: linear-gradient(to right top, rgba(49, 27, 146, 0.9), rgba(39, 41, 151, 0.9), rgba(29, 52, 155, 0.8), rgba(20, 62, 159, 0.9), #0d47a1);
   /*background-image: linear-gradient(to right top, rgba(63, 81, 181, 0.71), rgba(85, 74, 182, 0.71), rgba(105, 65, 180, 0.71), rgba(124, 53, 176, 0.71), #8e24aa);*/
   position: fixed;
   width: 260px;
@@ -95,7 +95,7 @@
 }
 .nav-link-side {
   cursor: pointer;
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 0.9rem;
   color: #d7d7d7 !important;
 }
 .nav-link-side:hover {
@@ -108,14 +108,14 @@
   transition: all 0.3s;
   color: #FFFFFF!important;
   border-radius: 1px!important;
-  background-color: #43a047!important;
+  background-color: #EC407A!important;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
 .active {
   transition: all 0.3s;
   color: #FFFFFF!important;
   border-radius: 1px!important;
-  background-color: #43a047!important;
+  background-color: #EC407A!important;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
 .breadcrumb-custom {

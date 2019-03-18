@@ -1,39 +1,43 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <h4 class="mt-1 mb-1">Новая камера</h4>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="addCameraForm">
+      <div class="form-row">
+        <div class="col-md-6 form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-camera mr-3"></i>
+                Название:
+              </small>
+            </div>
+            <input formControlName="name" type="text" class="form-control form-control-blue" id="name" name="name">
+          </div>
+          <small class="text-muted">Введите имя камеры</small>
+        </div>
+        <div class="col-md-6 form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <small class="input-group-text input-group-text-blue">
+                <i class="fas fa-key mr-3"></i>
+                IP адрес:
+              </small>
+            </div>
+            <input formControlName="address" type="text" class="form-control form-control-blue" id="address" name="address">
+          </div>
+          <small class="text-muted">Введите IP адрес камеры</small>
+        </div>
+      </div>
+      <button class="btn btn-blue pl-5 pr-5" type="submit" [disabled]="addCameraForm.invalid" (click)="addCamera(addCameraForm.value)">Добавить камеру</button>
+    </form>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-header">
-    <div class="row">
-      <div class="col-md-5 align-self-center">
-        <h4 class="mt-1 mb-1">Камеры</h4>
-      </div>
-      <div class="col-md-7 align-self-center text-right">
-        <form [formGroup]="addCameraForm">
-          <div class="row">
-            <div class="col-lg-5">
-              <div class="input-group">
-                <!--<div class="input-group-prepend">-->
-                  <!--<small class="input-group-text input-group-text-blue">-->
-                    <!--Название:-->
-                  <!--</small>-->
-                <!--</div>-->
-                <input formControlName="name" type="text" class="form-control form-control-blue form-control-sm" id="name" name="name" placeholder="Название">
-              </div>
-            </div>
-            <div class="col-lg-5">
-              <div class="input-group">
-                <!--<div class="input-group-prepend">-->
-                  <!--<small class="input-group-text input-group-text-blue">-->
-                    <!--IP адрес:-->
-                  <!--</small>-->
-                <!--</div>-->
-                <input formControlName="address" type="text" class="form-control form-control-blue form-control-sm" id="address" name="address" placeholder="IP адрес">
-              </div>
-            </div>
-            <div class="col-lg-2">
-                <button class="btn btn-header btn-sm" type="submit" [disabled]="addCameraForm.invalid" (click)="addCamera(addCameraForm.value)">ДОБАВИТЬ</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+    <h4 class="mt-1 mb-1">Камеры</h4>
   </div>
   <div class="table-responsive" *ngIf="listCamera.length > 0">
     <table class="table mb-0">

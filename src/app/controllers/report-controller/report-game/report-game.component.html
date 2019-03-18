@@ -1,3 +1,85 @@
-<p>
-  report-game works!
-</p>
+<form [formGroup]="reportForm" class="row">
+  <div class="form-group col-lg-5">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+      </div>
+      <input class="form-control border-0" [selectMode]="'range'"
+             [owlDateTime]="date" [owlDateTimeTrigger]="date" (dateTimeChange)="getReport(reportForm.value.date)" [rangeSeparator]="'-'"
+             placeholder="Выберите временной диапазон" formControlName="date" id="date" name="date">
+      <owl-date-time #date></owl-date-time>
+      <div class="input-group-append">
+        <button class="btn btn-width btn-append border-left" (click)="getReport(reportForm.value.date)">Сформировать</button>
+      </div>
+    </div>
+  </div>
+  <div class="form-group col-lg-7">
+    <div class="row">
+      <div class="col-md-3 col-6 text-right">
+        <div class="btn-group w-100">
+          <div class="btn btn-white border-radius-left" (click)="editDay('-')"><i class="fas fa-caret-left"></i></div>
+          <div class="btn btn-white w-100 btn-width" [ngClass]="activeDate === 'day' ? 'active':''" (click)="getDay(); activeDate = 'day'">День</div>
+          <div class="btn btn-white border-radius-right" (click)="editDay('+')"><i class="fas fa-caret-right"></i></div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 text-right">
+        <div class="btn-group w-100">
+          <div class="btn btn-white border-radius-left" (click)="editWeek('-')"><i class="fas fa-caret-left"></i></div>
+          <div class="btn btn-white w-100 btn-width" [ngClass]="activeDate === 'week' ? 'active':''" (click)="getWeek(); activeDate = 'week'">Неделя</div>
+          <div class="btn btn-white border-radius-right" (click)="editWeek('+')"><i class="fas fa-caret-right"></i></div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 text-right">
+        <div class="btn-group w-100">
+          <div class="btn btn-white border-radius-left" (click)="editMonth('-')"><i class="fas fa-caret-left"></i></div>
+          <div class="btn btn-white w-100 btn-width" [ngClass]="activeDate === 'month' ? 'active':''" (click)="getMonth(); activeDate = 'month'">Месяц</div>
+          <div class="btn btn-white border-radius-right" (click)="editMonth('+')"><i class="fas fa-caret-right"></i></div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 text-right">
+        <div class="btn-group w-100">
+          <div class="btn btn-white border-radius-left" (click)="editYear('-')"><i class="fas fa-caret-left"></i></div>
+          <div class="btn btn-white w-100 btn-width" [ngClass]="activeDate === 'year' ? 'active':''" (click)="getYear(); activeDate = 'year'">Год</div>
+          <div class="btn btn-white border-radius-right" (click)="editYear('+')"><i class="fas fa-caret-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="card">
+  <div class="table-responsive" *ngIf="listReport.length > 0">
+    <table class="table mb-0">
+      <thead>
+      <tr>
+        <th scope="col" class="border-0">#</th>
+        <th scope="col" class="w-50 border-0">Название</th>
+        <th scope="col" class="w-25 border-0">Кол-во</th>
+        <th scope="col" class="w-25 border-0">Сумма</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of listReport; let i = index">
+        <td class="align-middle text-center">
+          {{i+1}}
+        </td>
+        <td class="align-middle w-50">{{item.name}}</td>
+        <td class="align-middle w-25">{{item.quant}}</td>
+        <td class="align-middle w-25">{{item.price | currency:'RUB':' ':'1.0-0'}} руб.</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="text-center mt-5 icon-back" *ngIf="listReport.length === 0" [@list]>
+  <div class="display-1">
+    <i class="fas fa-dice"></i>
+  </div>
+  <div class="display-3 font-weight-bold">
+    Тут будет отчет!
+  </div>
+</div>

@@ -47,8 +47,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReportGameComponent} from './controllers/report-controller/report-game/report-game.component';
 import {ReportEventComponent} from './controllers/report-controller/report-event/report-event.component';
 import {ReportPersonComponent} from './controllers/report-controller/report-person/report-person.component';
-// import {OwlDateTimeIntl, OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
-// import {DefaultIntl} from './locale/locale';
+import {OwlDateTimeIntl, OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
+import {DefaultIntl} from './locale/locale';
 
 const notifierDefaultOptions: NotifierOptions = {
   position: {
@@ -120,8 +120,8 @@ const notifierDefaultOptions: NotifierOptions = {
     NgxMaskModule.forRoot(),
     NgMultiSelectDropDownModule.forRoot(),
     BrowserAnimationsModule,
-    // OwlDateTimeModule,
-    // OwlNativeDateTimeModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
   ],
   providers: [AuthService, AuthGuard,
     {
@@ -129,8 +129,10 @@ const notifierDefaultOptions: NotifierOptions = {
       useClass: JwtInterceptor,
       multi: true
     },
-    // {provide: OwlDateTimeIntl,
-    //   useClass: DefaultIntl},
+    {
+      provide: OwlDateTimeIntl,
+      useClass: DefaultIntl
+    }
   ],
   bootstrap: [AppComponent]
 })
